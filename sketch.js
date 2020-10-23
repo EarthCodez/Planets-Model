@@ -7,7 +7,7 @@ var i6;
 var i7;
 var i8;
 var i9;
-var a=1;
+
 function setup() {
   createCanvas(1000,1000,WEBGL);
   i1=loadImage("unnamed(1).jpg");
@@ -23,10 +23,8 @@ function setup() {
 
 function draw(){
   background("black");
-  rotateX(a);
-  rotateZ(a);
-  rotateY(a);
   noStroke();
+  rotateY(millis() / 10000);
   if(key=='1'){
   texture(i9);
   sphere(200);
@@ -38,6 +36,7 @@ function draw(){
     if(key=='3'){
   texture(i2);
   sphere(200);
+  rotateY(-millis() / 10000);
     }
   if(key=='4'){
   texture(i3);
@@ -67,5 +66,8 @@ function draw(){
     sphere(200);
 
   }
-  a=a+0.01
+  if(mouseIsPressed){
+    rotateX(mouseX);
+  }
+    orbitControl(3);
 }
